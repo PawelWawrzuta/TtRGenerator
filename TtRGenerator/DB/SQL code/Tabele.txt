@@ -1,0 +1,14 @@
+CREATE TABLE GameDetails (
+    GameDetailsId INT IDENTITY(1,1) PRIMARY KEY,
+    GameName VARCHAR(30) UNIQUE,
+    ImageData VARBINARY(MAX)
+);
+
+CREATE TABLE Vertices (
+    VertexID INT IDENTITY(1,1) PRIMARY KEY,
+    GameDetailsId INT NOT NULL,
+    VertexName VARCHAR(30),
+    Latitude NVARCHAR(MAX),
+    Longitude NVARCHAR(MAX),
+    FOREIGN KEY (GameDetailsId) REFERENCES GameDetails(GameDetailsId)
+);
